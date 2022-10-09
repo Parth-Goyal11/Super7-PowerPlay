@@ -16,18 +16,21 @@ public class GrabberTest extends LinearOpMode {
 
         Motor ls = new Motor(hardwareMap, "leftSlide"), rs = new Motor(hardwareMap, "rightSlide");
         Grabber grabber = new Grabber(ls, rs, lv, rv, s);
+        String grabberStat = "rest"; 
         while (opModeIsActive()) {
             if(gamepad1.dpad_up){
-                grabber.updateArmPos("high");
+                grabberStat = "high"
             }
 
             if(gamepad1.dpad_down){
-                grabber.updateArmPos("rest");
+                grabberStat = "rest"
             }
 
             if(gamepad1.dpad_left){
-                grabber.updateArmPos("middle");
+                grabberStat = "middle"
             }
+            
+            grabber.updateArmPos(grabberStat);
         }
     }
 }
