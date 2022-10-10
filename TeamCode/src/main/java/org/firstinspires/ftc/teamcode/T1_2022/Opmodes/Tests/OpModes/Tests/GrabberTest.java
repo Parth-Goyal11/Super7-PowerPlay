@@ -19,15 +19,15 @@ public class GrabberTest extends LinearOpMode {
         String grabberStat = "rest"; 
         while (opModeIsActive()) {
             if(gamepad1.dpad_up){
-                grabberStat = "high"
+                grabberStat = "high";
             }
 
             if(gamepad1.dpad_down){
-                grabberStat = "rest"
+                grabberStat = "rest";
             }
 
             if(gamepad1.dpad_left){
-                grabberStat = "middle"
+                grabberStat = "middle";
             }
             
             grabber.updateArmPos(grabberStat);
