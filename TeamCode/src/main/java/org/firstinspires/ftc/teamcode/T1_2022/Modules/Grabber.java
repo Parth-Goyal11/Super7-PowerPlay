@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode.T1_2022.Modules;
 
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.TouchSensor;
+
 import java.util.Objects;
 import org.firstinspires.ftc.teamcode.Utils.Motor;
 
@@ -16,13 +18,15 @@ public class Grabber {
 
   Motor leftSlide, rightSlide;
   Servo claw, v4bLeft, v4bRight;
+  TouchSensor resetSensor;
 
-  public Grabber(Motor l, Motor r, Servo ls, Servo rs, Servo g) {
+  public Grabber(Motor l, Motor r, Servo ls, Servo rs, Servo g, TouchSensor t) {
     leftSlide = l;
     rightSlide = r;
     v4bLeft = ls;
     v4bRight = rs;
     claw = g;
+    resetSensor = t;
 
     leftSlide.resetEncoder(true);
     rightSlide.resetEncoder(true);
@@ -49,7 +53,8 @@ public class Grabber {
   }
 
   public void restArm() {
-    raiseToPosition(REST, 0.5);
+    resetArm();
+    //raiseToPosition(REST, 0.5);
     armRested = true;
   }
 
@@ -120,6 +125,16 @@ public class Grabber {
     v4bISFRONT = false;
   }
 
+  public void resetArm()
+  {
+    setV4B_BACK();
+    while(!resetSensor.isPressed()){
+      leftSlide.setPower(-0.35);
+      rightSlide.setPower(-0.35);
+    }
+    leftSlide.setPower(0);
+    rightSlide.setPower(0);
+  }
   public int getSlidePos() {
     return Math.max(leftSlide.encoderReading(), rightSlide.encoderReading());
   }
