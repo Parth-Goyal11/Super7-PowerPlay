@@ -11,7 +11,8 @@ public class Odometry {
   public final double ENCODER_WHEEL_DIAMETER = 2;
   private final double ENCODER_TICKS_PER_REVOLUTION = 1120;
   private final double ENCODER_WHEEL_CIRCUMFERENCE = Math.PI * 2.0 * (ENCODER_WHEEL_DIAMETER * 0.5);
-  private final double ENCODER_WIDTH = 12.0; // DISTANCE BETWEEN FRONT FACING ENCODER WHEELS IN INCHES
+  private final double ENCODER_WIDTH =
+      12.0; // DISTANCE BETWEEN FRONT FACING ENCODER WHEELS IN INCHES
 
   private boolean verbose = false;
   public String outStr = "";

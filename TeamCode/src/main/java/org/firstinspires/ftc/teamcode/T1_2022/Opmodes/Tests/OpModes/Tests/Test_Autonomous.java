@@ -1,10 +1,10 @@
 package org.firstinspires.ftc.teamcode.T1_2022.Opmodes.Tests.OpModes.Tests;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import org.firstinspires.ftc.teamcode.T1_2022.Base;
-import org.firstinspires.ftc.teamcode.Utils.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
+import org.firstinspires.ftc.teamcode.T1_2022.Base;
+import org.firstinspires.ftc.teamcode.Utils.Point;
 
 @Autonomous(name = "Test_Autonomous", group = "Tests")
 public class Test_Autonomous extends Base {
@@ -69,7 +69,7 @@ public class Test_Autonomous extends Base {
       fastDrive = gamepad1.left_trigger > 0.05;
       drive = floor(-gamepad1.right_stick_x);
       strafe = floor(gamepad1.right_stick_y);
-      turn = turnFloor(gamepad1.left_stick_x) ;
+      turn = turnFloor(gamepad1.left_stick_x);
       computeDrivePowers(gamepad1);
 
       // Display Values
